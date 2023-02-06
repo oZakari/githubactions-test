@@ -21,7 +21,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Create variable in PowerShell
         shell: pwsh
-        run: $TestVariable = "This is a test"
+        run: | 
+          $TestVariable = "This is a test"
+          Write-Host $TestVariable
         
       - name: Call variable in PowerShell
         shell: pwsh
