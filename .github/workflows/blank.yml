@@ -18,9 +18,10 @@ jobs:
         shell: pwsh
         run: | 
           $TestVariable = "This is a test"
-          echo "NEW_VARIABLE=Testing" >> $GITHUB_ENV
+          echo "NEW_VARIABLE=$(TestVariable)" >> $GITHUB_ENV
         
       - name: Call variable in PowerShell
+        shell: pwsh
         run: |
           echo "${{ env.NEW_VARIABLE }}"
           Write-Host "${{ env.NEW_VARIABLE }}"
