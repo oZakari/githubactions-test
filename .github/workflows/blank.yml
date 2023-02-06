@@ -23,5 +23,5 @@ jobs:
       - name: Call variable in PowerShell
         shell: pwsh
         run: |
-          echo "${{ $NEW_VARIABLE }}"
-          Write-Host "${{ $NEW_VARIABLE }}"
+          echo "${{ env.NEW_VARIABLE }}"
+          Write-Host "${{ env.NEW_VARIABLE }}"
