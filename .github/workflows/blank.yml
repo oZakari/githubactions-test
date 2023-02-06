@@ -21,7 +21,15 @@ jobs:
           echo "NEW_VARIABLE=Testing" >> $GITHUB_ENV
         
       - name: Call variable in PowerShell
-        shell: pwsh
         run: |
           echo "${{ env.NEW_VARIABLE }}"
           Write-Host "${{ env.NEW_VARIABLE }}"
+          
+      - name: Set the value
+        id: step_one
+        run: |
+          echo "action_state=yellow" >> $GITHUB_ENV
+      - name: Use the value
+        id: step_two
+        run: |
+          echo "${{ env.action_state }}" # This will output 'yellow'
