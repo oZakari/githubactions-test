@@ -1,3 +1,4 @@
+
 name: CI
 
 on:
@@ -10,19 +11,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  GitHubEnv-Test:
+  build:
     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
+
+      # Runs a single command using the runners shell
       - name: Create variable in PowerShell
         shell: pwsh
         run: | 
           $TestVariable = "This is a test"
           Write-Host $TestVariable
-          echo "NEW_VARIABLE=${{$TestVariable}}" >> $GITHUB_ENV
         
       - name: Call variable in PowerShell
         shell: pwsh
-        run: Write-Host $NEW_VARIABLE
-     
+        run: Write-Host $TestVariable
