@@ -22,4 +22,4 @@ jobs:
         
       - name: Call variable in PowerShell
         shell: pwsh
-        run: echo $NEW_VARIABLE
+        run: echo "$NEW_VARIABLE"
